@@ -1,6 +1,8 @@
+<?php
+    include("variable.php");
+?>
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -63,6 +65,11 @@
                                     <button class="btn btn-primary" type="submit">Valider</button>
                                 </div>
                             </div>
+                            <?php
+                                echo ($error);
+                                echo ($msg_error);
+                                
+                            ?>
                         </div>
                     </form>
                 </div>

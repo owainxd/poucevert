@@ -1,6 +1,5 @@
 <?php
     include("database.php");
-    
     /*
     echo "Data saved!";
     echo "NOM ".$_POST["nom"]."<br>";
@@ -19,20 +18,47 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
     $prenom = mysqli_real_escape_string($db,$_POST['prenom']);
     $pseudo = mysqli_real_escape_string($db,$_POST['pseudo']);
     $email = mysqli_real_escape_string($db,$_POST['email']); 
-    $password = mysqli_real_escape_string($db,$_POST['password']); 
+    $password = mysqli_real_escape_string($db,$_POST['password']);
 
-    $sql = "INSERT INTO users ".
-               "(nom, prenom, pseudo, email, password) ".
-               "VALUES ". "('$nom', '$prenom', '$pseudo','$email','$password')";
-    
-if(mysqli_query($db, $sql)) {
-    echo "New record created successfully";
-    header("location: connexion.php");
-} 
-else{
-    echo "Error: " . $sql . "<br>" . mysqli_error($db);
-    header("location: inscription.php");
-}
+    $sql_pseudo = "SELECT count(*) FROM users where pseudo = '$pseudo'";
+    $sql_email = "SELECT count(*) FROM users where email = '$email'";
+
+    if($_POST["password"] != $_POST["password_confirm"])
+    {
+        $_SESSION['error_val'] = 1;
+        $_SESSION['error_msg'] = "password et confirmer doivent être identique";
+        header("location: inscription.php");
+    }
+    elseif(mysqli_query($db, $sql_pseudo) > 0)
+    {
+        $_SESSION['error_val'] = 1;
+        $_SESSION['error_msg'] = "Ce pseudo existe deja!";
+        header("location: inscription.php");
+    }
+    elseif(mysqli_query($db, $sql_email) > 0)
+    {
+        $_SESSION['error_val'] = 1;
+        $_SESSION['error_msg'] = "Cett adresse email est deja utilisé!";
+        header("location: inscription.php");
+    }
+    else
+    {
+        $sql = "INSERT INTO users ".
+        "(nom, prenom, pseudo, email, password) ".
+        "VALUES ". "('$nom', '$prenom', '$pseudo','$email','$password')";
+
+        if(mysqli_query($db, $sql)) {
+        echo "New record created successfully";
+        header("location: connexion.php");
+        } 
+
+        else{
+        echo "Error: " . $sql . "<br>" . mysqli_error($db);
+        header("location: inscription.php");
+        }
+    }
+
+   
 mysqli_close($db);
 }
 

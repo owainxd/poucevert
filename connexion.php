@@ -10,6 +10,7 @@
         integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe"
         crossorigin="anonymous"></script>
     <link rel="stylesheet" href="styles.css">
+    <script src="togglevis.js"></script>
     <title>Page de connexion</title>
     <style>
         .login-page {
@@ -60,16 +61,32 @@
                             <div class="col-md-6">
                                 <h1 class="text-center mb-4">Connexion</h1>
                                 <form action="connexion_controller.php" method="POST">
+                                <div class="form-group">
+                                        <?php
+                                            session_start();
+                                            if(isset($_SESSION['errorMsg'])) {
+                                                $error = $_SESSION['errorMsg'];
+                                                echo '<div class="alert alert-danger">' . $error . '</div>';
+                                                unset($_SESSION['errorMsg']) ;
+                                            }
+                                        ?>
+                                    </div>
                                     <div class="form-group">
                                         <label>Nom d'utilisateur ou adresse e-mail</label>
                                         <input type="text" class="form-control" name="login"
                                             placeholder="Entrez votre nom d'utilisateur ou adresse e-mail">
                                     </div>
+
                                     <div class="form-group">
                                         <label>Mot de passe</label>
-                                        <input type="password" class="form-control" name="password"
-                                            placeholder="Entrez votre mot de passe">
+                                        <div class="input-group">
+                                            <input type="password" class="form-control" name="password" id="passwordInput"
+                                                placeholder="Entrez votre mot de passe">
+                                            <button type="button" class="btn btn-secondary password-toggle" onclick="togglePasswordVisibility()"
+                                                id="passwordToggle">Afficher</button>
+                                        </div>
                                     </div>
+                                    
                                     <div class="form-group form-check">
                                         <input type="checkbox" class="form-check-input" id="rememberCheck">
                                         <label class="form-check-label" for="rememberCheck">Se souvenir de moi</label>

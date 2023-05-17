@@ -19,39 +19,39 @@
             <div class="col-md-4 offset-md-2">
                 <h2>Formulaire d'inscription</h2>
                 <div class="shadow p-3 mb-5 bg-body-tertiary rounded">
-                    <form action="">
+                    <form action="inscription_controller.php" method ="POST">
                         <div class="row g-3">
                             <div class="col mb-3">
-                                <label for="floatingInput">Nom</label>
-                                <input type="nom" name="nom" class="form-control" id="floatingInput" placeholder="nom"
+                                <label>Nom</label>
+                                <input type="text" name="nom" class="form-control"  placeholder="nom"
                                     required>
                             </div>
                             <div class="col mb-3">
-                                <label for="floatingInput">Prénom</label>
-                                <input type="prenom" name="prenom" class="form-control" id="floatingInput"
+                                <label>Prénom</label>
+                                <input type="text" name="prenom" class="form-control" 
                                     placeholder="prenom" required>
                             </div>
                         </div>
 
                         <div class="mb-3">
-                            <label for="floatingInput">Email</label>
-                            <input type="email" name="email" class="form-control" id="floatingInput"
+                            <label>Email</label>
+                            <input type="email" name="email" class="form-control" 
                                 placeholder="name@example.com" required>
                         </div>
                         <div class="mb-3">
-                            <label for="floatingInput">Pseudo</label>
-                            <input type="pseudo" name="pseudo" class="form-control" id="floatingInput"
+                            <label>Pseudo</label>
+                            <input type="text" name="pseudo" class="form-control" 
                                 placeholder="pseudo" required>
                         </div>
                         <div class="mb-3">
-                            <label for="inputPassword5" class="form-label">Password</label>
-                            <input type="test" name="password" id="inputPassword5" class="form-control"
+                            <label class="form-label">Password</label>
+                            <input type="text" name="password" class="form-control"
                                 placeholder="mot de passe" required>
 
                         </div>
                         <div class="mb-3">
-                            <label for="inputPassword5" class="form-label">Confirmer</label>
-                            <input type="password" name="password_confirm" id="inputPassword5" class="form-control"
+                            <label class="form-label">Confirmer</label>
+                            <input type="text" name="password_confirm" class="form-control"
                                 aria-labelledby="passwordHelpBlock" placeholder="confirmer le mot de passe" required>
                         </div>
                         <div class="text-center">

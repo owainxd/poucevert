@@ -1,5 +1,6 @@
 <?php
     include("database.php");
+    include("variable.php");
     /*
     echo "Data saved!";
     echo "NOM ".$_POST["nom"]."<br>";

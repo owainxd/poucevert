@@ -66,9 +66,10 @@
                                 </div>
                             </div>
                             <?php
-                                echo ($error);
-                                echo ($msg_error);
-                                
+                                if($error == 1)
+                                {
+                                    echo ($msg_error);
+                                }
                             ?>
                         </div>
                     </form>

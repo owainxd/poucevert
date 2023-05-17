@@ -10,30 +10,61 @@
         integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe"
         crossorigin="anonymous"></script>
     <title>Page de connexion</title>
+    <style>
+        body,
+        html {
+            height: 100%;
+        }
+
+        .login-page {
+            background-image: url('images/login.jpg');
+            background-size: cover;
+            background-position: center;
+            min-height: 100vh;
+            justify-content: center;
+            display: flex;
+            align-items: center;
+            height: 100%;
+        }
+
+        .login-header {
+            margin-bottom: 30px;
+        }
+
+        .login-card {
+            background-color: #ffffff;
+            padding: 20px;
+            border-radius: 5px;
+        }
+    </style>
 </head>
 
 <body>
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-md-6">
-                <h1 class="text-center">Connexion</h1>
-                <form>
-                    <div class="form-group">
-                        <label for="loginInput">Nom d'utilisateur ou adresse e-mail</label>
-                        <input type="text" class="form-control" id="loginInput"
-                            placeholder="Entrez votre nom d'utilisateur ou adresse e-mail">
+                <div class="login-page">
+                    <div class="login-card">
+                        <h1 class="text-center login-header">Connexion</h1>
+                        <form>
+                            <div class="form-group">
+                                <label for="loginInput">Nom d'utilisateur ou adresse e-mail</label>
+                                <input type="text" class="form-control" id="loginInput"
+                                    placeholder="Entrez votre nom d'utilisateur ou adresse e-mail">
+                            </div>
+                            <div class="form-group">
+                                <label for="passwordInput">Mot de passe</label>
+                                <input type="password" class="form-control" id="passwordInput"
+                                    placeholder="Entrez votre mot de passe">
+                            </div>
+                            <div class="form-group form-check">
+                                <input type="checkbox" class="form-check-input" id="rememberCheck">
+                                <label class="form-check-label" for="rememberCheck">Se souvenir de moi</label>
+                            </div>
+                            <button type="submit" class="btn btn-primary">Se connecter</button>
+                        </form>
                     </div>
-                    <div class="form-group">
-                        <label for="passwordInput">Mot de passe</label>
-                        <input type="password" class="form-control" id="passwordInput"
-                            placeholder="Entrez votre mot de passe">
-                    </div>
-                    <div class="form-group form-check">
-                        <input type="checkbox" class="form-check-input" id="rememberCheck">
-                        <label class="form-check-label" for="rememberCheck">Se souvenir de moi</label>
-                    </div>
-                    <button type="submit" class="btn btn-primary">Se connecter</button>
-                </form>
+                </div>
             </div>
         </div>
     </div>

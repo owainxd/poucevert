@@ -23,8 +23,8 @@
             </button>
             <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
                 <div class="navbar-nav">
-                    <a class="nav-link" href="inscription.html">Inscription</a>
-                    <a class="nav-link" href="connexion.html">Connexion</a>
+                    <a class="nav-link" href="inscription.php">Inscription</a>
+                    <a class="nav-link" href="connexion.php">Connexion</a>
                     <a class="nav-link" href="">Users</a>
 
                     <li class="nav-item dropdown">

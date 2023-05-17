@@ -61,11 +61,22 @@
                             <div class="col-md-6">
                                 <h1 class="text-center mb-4">Connexion</h1>
                                 <form action="connexion_controller.php" method="POST">
+                                <div class="form-group">
+                                        <?php
+                                            session_start();
+                                            if(isset($_SESSION['errorMsg'])) {
+                                                $error = $_SESSION['errorMsg'];
+                                                echo '<div class="alert alert-danger">' . $error . '</div>';
+                                                unset($_SESSION['errorMsg']) ;
+                                            }
+                                        ?>
+                                    </div>
                                     <div class="form-group">
                                         <label>Nom d'utilisateur ou adresse e-mail</label>
                                         <input type="text" class="form-control" name="login"
                                             placeholder="Entrez votre nom d'utilisateur ou adresse e-mail">
                                     </div>
+
                                     <div class="form-group">
                                         <label>Mot de passe</label>
                                         <div class="input-group">
@@ -75,6 +86,7 @@
                                                 id="passwordToggle">Afficher</button>
                                         </div>
                                     </div>
+                                    
                                     <div class="form-group form-check">
                                         <input type="checkbox" class="form-check-input" id="rememberCheck">
                                         <label class="form-check-label" for="rememberCheck">Se souvenir de moi</label>

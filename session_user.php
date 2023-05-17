@@ -9,6 +9,7 @@
    
    $row = mysqli_fetch_array($ses_sql,MYSQLI_ASSOC);
    
+   $id = $row['id'];
    $nom = $row['nom'];
    $prenom = $row['prenom'];
    $pseudo = $row['pseudo'];

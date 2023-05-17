@@ -1,6 +1,6 @@
 <?php
     include("database.php");
-    
+    /*
     echo "Data saved!";
     echo "NOM ".$_POST["nom"]."<br>";
     echo "PRENOM: ".$_POST["prenom"]."<br>";
@@ -18,7 +18,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
     $prenom = mysqli_real_escape_string($db,$_POST['prenom']);
     $pseudo = mysqli_real_escape_string($db,$_POST['pseudo']);
     $email = mysqli_real_escape_string($db,$_POST['email']); 
-    $password = mysqli_real_escape_string($db,$_POST['password']); 
+    $password = mysqli_real_escape_string($db,$_POST['password']);
 
     $sql = "INSERT INTO users ".
                "(nom, prenom, pseudo, email, password) ".

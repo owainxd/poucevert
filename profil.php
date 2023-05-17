@@ -1,6 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
 
+<?php
+include('session_user.php');  
+?>
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -27,8 +31,8 @@
                                 <img src="https://api.bflcanada.ca/wp-content/uploads/2019/12/BFL_NEUTRAL_PROFILE_001.jpg"
                                     class="rounded-circle" width="150">
                                 <div class="mt-3">
-                                    <h4>Prénom Nom</h4>
-                                    <p class="text-secondary mb-1">@Pseudo</p>
+                                    <h4> <?php echo $prenom.' '.$nom ; ?> </h4>
+                                    <p class="text-secondary mb-1"> <?php echo '@'.$pseudo ; ?> </p>
                                 </div>
                             </div>
                         </div>
@@ -42,7 +46,7 @@
                                     <h6 class="mb-0">Nom</h6>
                                 </div>
                                 <div class="col-sm-9 text-secondary">
-                                    Nom
+                                    <?php echo $nom ; ?>
                                 </div>
                             </div>
                             <hr>
@@ -51,7 +55,7 @@
                                     <h6 class="mb-0">Prénom</h6>
                                 </div>
                                 <div class="col-sm-9 text-secondary">
-                                    Prénom
+                                    <?php echo $prenom ; ?>
                                 </div>
                             </div>
                             <hr>
@@ -60,7 +64,7 @@
                                     <h6 class="mb-0">Pseudo</h6>
                                 </div>
                                 <div class="col-sm-9 text-secondary">
-                                    pseudo
+                                    <?php echo $pseudo ; ?>
                                 </div>
                             </div>
                             <hr>
@@ -69,20 +73,19 @@
                                     <h6 class="mb-0">Email</h6>
                                 </div>
                                 <div class="col-sm-9 text-secondary">
-                                    email@exemple.fr
+                                    <?php echo $email ; ?>
                                 </div>
                             </div>
                             <hr>
                             <div class="row">
                                 <div class="col-sm-12">
                                     <a class="btn btn-outline-primary" target="__blank"
-                                        href="modification.html">Modifier</a>
+                                        href="modification.php">Modifier</a>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
-
             </div>
         </div>
 </body>

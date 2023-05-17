@@ -1,5 +1,4 @@
 <?php
-
    include("database.php");
    if($_SERVER["REQUEST_METHOD"] == "POST") {
        // username and password sent from form 

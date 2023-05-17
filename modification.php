@@ -1,6 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
 
+<?php
+include('session_user.php');  
+?>
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -27,58 +31,60 @@
                                 <img src="https://api.bflcanada.ca/wp-content/uploads/2019/12/BFL_NEUTRAL_PROFILE_001.jpg"
                                     class="rounded-circle" width="150">
                                 <div class="mt-3">
-                                    <h4>Prénom Nom</h4>
-                                    <p class="text-secondary mb-1">@Pseudo</p>
+                                    <h4> <?php echo $prenom.' '.$nom ; ?> </h4>
+                                    <p class="text-secondary mb-1"> <?php echo '@'.$pseudo ; ?> </p>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
                 <div class="col-lg-8 mt-3">
-                    <div class="card">
-                        <div class="card-body">
-                            <div class="row mb-3">
-                                <div class="col-sm-3">
-                                    <h6 class="mb-0">Nom</h6>
+                    <form action="update_user.php" method="POST">
+                        <div class="card">
+                            <div class="card-body">
+                                <div class="row mb-3">
+                                    <div class="col-sm-3">
+                                        <h6 class="mb-0">Nom</h6>
+                                    </div>
+                                    <div class="col-sm-9 text-secondary">
+                                        <input type="text" class="form-control" name="nom" placeholder=<?php echo($nom); ?> required>
+                                    </div>
                                 </div>
-                                <div class="col-sm-9 text-secondary">
-                                    <input type="text" class="form-control" placeholder="nom" required>
+                                <div class="row mb-3">
+                                    <div class="col-sm-3">
+                                        <h6 class="mb-0">Prénom</h6>
+                                    </div>
+                                    <div class="col-sm-9 text-secondary">
+                                        <input type="text" class="form-control" name="prenom" placeholder=<?php echo($prenom); ?> required>
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="row mb-3">
-                                <div class="col-sm-3">
-                                    <h6 class="mb-0">Prénom</h6>
+                                <div class="row mb-3">
+                                    <div class="col-sm-3">
+                                        <h6 class="mb-0">Pseudo</h6>
+                                    </div>
+                                    <div class="col-sm-9 text-secondary">
+                                        <input type="text" class="form-control" name="pseudo" placeholder=<?php echo($pseudo); ?> required>
+                                    </div>
                                 </div>
-                                <div class="col-sm-9 text-secondary">
-                                    <input type="text" class="form-control" placeholder="prénom" required>
+                                <div class="row mb-3">
+                                    <div class="col-sm-3">
+                                        <h6 class="mb-0">Email</h6>
+                                    </div>
+                                    <div class="col-sm-9 text-secondary">
+                                        <input type="email" class="form-control" name="email" placeholder=<?php echo($email); ?> required>
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="row mb-3">
-                                <div class="col-sm-3">
-                                    <h6 class="mb-0">Pseudo</h6>
-                                </div>
-                                <div class="col-sm-9 text-secondary">
-                                    <input type="text" class="form-control" placeholder="pseudo" required>
-                                </div>
-                            </div>
-                            <div class="row mb-3">
-                                <div class="col-sm-3">
-                                    <h6 class="mb-0">Email</h6>
-                                </div>
-                                <div class="col-sm-9 text-secondary">
-                                    <input type="email" class="form-control" placeholder="name@example.com" required>
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="col-sm-3"></div>
-                                <div class="col-sm-9 text-secondary">
-                                    <a class="btn btn-secondary px-4" target="__blank" href="profil.html"
-                                        role="button">Annuler</a>
-                                    <input class="btn btn-primary px-4" type="submit" value="Enregistrer">
+                                <div class="row">
+                                    <div class="col-sm-3"></div>
+                                    <div class="col-sm-9 text-secondary">
+                                        <a class="btn btn-secondary px-4" target="__blank" href="profil.php"
+                                            role="button">Annuler</a>
+                                        <button type="submit" class="btn btn-primary">Enregistrer</button>
+                                    </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
+                    </form>
                 </div>
 </body>
 

@@ -15,6 +15,7 @@
    $pseudo = $row['pseudo'];
    $email = $row['email'];
    $password = $row['password'];
+   $subscribed = $row['subscribed'];
 
    
    if(!isset($_SESSION['login'])){

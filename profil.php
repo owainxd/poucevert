@@ -78,6 +78,15 @@ include('session_user.php');
                             </div>
                             <hr>
                             <div class="row">
+                                <div class="col-sm-3">
+                                    <h6 class="mb-0">Date d'inscription</h6>
+                                </div>
+                                <div class="col-sm-9 text-secondary">
+                                    <?php echo $subscribed ; ?>
+                                </div>
+                            </div>
+                            <hr>
+                            <div class="row">
                                 <div class="col-sm-12">
                                     <a class="btn btn-outline-primary" target="__blank"
                                         href="modification.php">Modifier</a>

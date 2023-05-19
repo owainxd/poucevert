@@ -23,20 +23,23 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
 
     $sql_pseudo = "SELECT count(*) FROM users where pseudo = '$pseudo'";
     $sql_email = "SELECT count(*) FROM users where email = '$email'";
-
+    $result_pseudo = mysqli_query($db, $sql_pseudo);
+    $result_email = mysqli_query($db, $sql_email);
+    $val_pseudo = mysqli_fetch_array($result_pseudo,MYSQLI_ASSOC);
+    $val_email = mysqli_fetch_array($result_email,MYSQLI_ASSOC);
     if($_POST["password"] != $_POST["password_confirm"])
     {
         $_SESSION['error_val'] = 1;
         $_SESSION['error_msg'] = "password et confirmer doivent être identique";
         header("location: inscription.php");
     }
-    elseif(mysqli_query($db, $sql_pseudo) > 0)
+    elseif($val_pseudo['pseudo'] > 0)
     {
         $_SESSION['error_val'] = 1;
         $_SESSION['error_msg'] = "Ce pseudo existe deja!";
         header("location: inscription.php");
     }
-    elseif(mysqli_query($db, $sql_email) > 0)
+    elseif($val_email['email'] > 0)
     {
         $_SESSION['error_val'] = 1;
         $_SESSION['error_msg'] = "Cett adresse email est deja utilisé!";
